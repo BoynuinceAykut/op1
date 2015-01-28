@@ -1,0 +1,65 @@
+﻿@model OgrenciPortal.UI.Models.ModelOgrenciIlkKayit
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Öğrenci Portalı Kayıt ol veya Giriş Yap</h2>
+
+@using (Html.BeginForm("Create","UyeVeGiris")) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Kayıt Ol</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Adi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Adi)
+            @Html.ValidationMessageFor(model => model.Adi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Soyadi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Soyadi)
+            @Html.ValidationMessageFor(model => model.Soyadi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email,"Lütfen geçerli bir E-Mail adresi giriniz.")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sifre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sifre)
+            @Html.ValidationMessageFor(model => model.Sifre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SifreTekrar)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SifreTekrar)
+            @Html.ValidationMessageFor(model => model.SifreTekrar)
+        </div>
+
+        <p>
+            <input type="submit" value="Üye Ol" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
