@@ -20,37 +20,19 @@ namespace OgrenciPortal.UI.Controllers
             return View();
         }
 
-        //
-        // GET: /UyeVeGiris/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
-        // GET: /UyeVeGiris/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /UyeVeGiris/Create
-
         [HttpPost]
-        public ActionResult Create(ModelOgrenciIlkKayit model)
+        public ActionResult OgrenciKayit(ModelKayitVeGirisUI model)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                
+                
                 OgrenciIlkKayitDTO dto = new OgrenciIlkKayitDTO();
-                dto.Adi = model.Adi;
-                dto.Email = model.Email;
-                dto.Sifre = model.Sifre;
-                dto.Soyadi = model.Soyadi;
+                dto.Adi = model.modelOgrenciIKayit.Adi;
+                dto.Email = model.modelOgrenciIKayit.Email;
+                dto.Sifre = model.modelOgrenciIKayit.Sifre;
+                dto.Soyadi = model.modelOgrenciIKayit.Soyadi;
 
                 bool sonuc = UyelikVeGirisManager.OgrenciIlkKayit(dto);
                 if (sonuc)
@@ -65,50 +47,33 @@ namespace OgrenciPortal.UI.Controllers
         }
 
         //
-        // GET: /UyeVeGiris/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /UyeVeGiris/Edit/5
-
+        // POST: /UyeVeGiris/OgrenciGiris
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult OgrenciGiris(ModelKayitVeGirisUI model)
         {
             try
             {
-                // TODO: Add update logic here
+                // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                OgrenciGirisDTO dto = new OgrenciGirisDTO();
+                dto.Email = model.modelogrencigiris.Email;
+                dto.Sifre = model.modelogrencigiris.Sifre;
 
-        //
-        // GET: /UyeVeGiris/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /UyeVeGiris/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                SessionKullaniciDTO sonuc = UyelikVeGirisManager.OgrenciGiris(dto);
+                if (sonuc != null)
+                {
+                    //ViewModelSession msession = new ViewModelSession();
+                    
+                    //    msession.Adi = sonuc.Adi;
+                    //    msession.Email = sonuc.Email;
+                    //    msession.guid = sonuc.guid;
+                    //    msession.Soyadi = sonuc.Soyadi;
+                    
+                    //Session["Kullanici"] = sonuc;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                    return View();
             }
             catch
             {

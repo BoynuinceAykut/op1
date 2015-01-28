@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\OgrenciGirisDTO.cs" />
     <Compile Include="Common\OgrenciIlkKayitDTO.cs" />
+    <Compile Include="Common\SessionKullaniciDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

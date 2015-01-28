@@ -10,7 +10,7 @@ namespace OgrenciPortal.UI.Models
     /// <summary>
     /// Öğrencinin ilk kayıt sırasında dolduracağı model
     /// </summary>
-    public class ModelOgrenciIlkKayit
+    public class ModelOgrenciIlkKayit : ViewModelSession
     {
         [Required]
         [Display(Name = "Adı")]

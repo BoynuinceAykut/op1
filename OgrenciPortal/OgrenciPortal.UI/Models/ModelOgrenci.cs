@@ -5,7 +5,7 @@ using System.Web;
 
 namespace OgrenciPortal.UI.Models
 {
-    public class ModelOgrenci
+    public class ModelOgrenci : ViewModelSession
     {
 
     }

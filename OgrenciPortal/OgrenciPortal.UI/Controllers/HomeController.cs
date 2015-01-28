@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OgrenciPortal.UI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,8 +14,13 @@ namespace OgrenciPortal.UI.Controllers
 
         public ActionResult Index()
         {
-
-            return View();
+            if (Session["Kullanici"] != null)
+            {
+                ViewModelSession kul = Session["Kullanici"] as ViewModelSession;
+                return View(kul);
+            }
+            else
+                return View();
         }
 
         //

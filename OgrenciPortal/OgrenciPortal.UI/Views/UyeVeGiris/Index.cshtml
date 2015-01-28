@@ -1,13 +1,14 @@
-﻿@model OgrenciPortal.UI.Models.ModelOgrenciIlkKayit
+﻿@model OgrenciPortal.UI.Models.ModelKayitVeGirisUI
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Kayıt ol veya Giriş Yap";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Öğrenci Portalı Kayıt ol veya Giriş Yap</h2>
 
-@using (Html.BeginForm("Create","UyeVeGiris")) {
+@using (Html.BeginForm("OgrenciKayit", "UyeVeGiris"))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -15,47 +16,77 @@
         <legend>Kayıt Ol</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Adi)
+            @Html.LabelFor(model => model.modelOgrenciIKayit.Adi)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Adi)
-            @Html.ValidationMessageFor(model => model.Adi)
+            @Html.EditorFor(model => model.modelOgrenciIKayit.Adi)
+            @Html.ValidationMessageFor(model => model.modelOgrenciIKayit.Adi)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Soyadi)
+            @Html.LabelFor(model => model.modelOgrenciIKayit.Soyadi)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Soyadi)
-            @Html.ValidationMessageFor(model => model.Soyadi)
+            @Html.EditorFor(model => model.modelOgrenciIKayit.Soyadi)
+            @Html.ValidationMessageFor(model => model.modelOgrenciIKayit.Soyadi)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
+            @Html.LabelFor(model => model.modelOgrenciIKayit.Email)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email,"Lütfen geçerli bir E-Mail adresi giriniz.")
+            @Html.EditorFor(model => model.modelOgrenciIKayit.Email)
+            @Html.ValidationMessageFor(model => model.modelOgrenciIKayit.Email,"Lütfen geçerli bir E-Mail adresi giriniz.")
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Sifre)
+            @Html.LabelFor(model => model.modelOgrenciIKayit.Sifre)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Sifre)
-            @Html.ValidationMessageFor(model => model.Sifre)
+            @Html.EditorFor(model => model.modelOgrenciIKayit.Sifre)
+            @Html.ValidationMessageFor(model => model.modelOgrenciIKayit.Sifre)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.SifreTekrar)
+            @Html.LabelFor(model => model.modelOgrenciIKayit.SifreTekrar)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.SifreTekrar)
-            @Html.ValidationMessageFor(model => model.SifreTekrar)
+            @Html.EditorFor(model => model.modelOgrenciIKayit.SifreTekrar)
+            @Html.ValidationMessageFor(model => model.modelOgrenciIKayit.SifreTekrar)
         </div>
 
         <p>
             <input type="submit" value="Üye Ol" />
+        </p>
+    </fieldset>
+}
+
+@using (Html.BeginForm("OgrenciGiris", "UyeVeGiris"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Giriş Yap</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.modelogrencigiris.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.modelogrencigiris.Email)
+            @Html.ValidationMessageFor(model => model.modelogrencigiris.Email,"Lütfen geçerli bir E-Mail adresi giriniz.")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.modelogrencigiris.Sifre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.modelogrencigiris.Sifre)
+            @Html.ValidationMessageFor(model => model.modelogrencigiris.Sifre)
+        </div>
+
+        <p>
+            <input type="submit" value="Giriş Yap" />
         </p>
     </fieldset>
 }
