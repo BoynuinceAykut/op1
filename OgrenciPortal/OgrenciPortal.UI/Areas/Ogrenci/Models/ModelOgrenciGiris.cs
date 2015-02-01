@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace OgrenciPortal.UI.Models
+namespace OgrenciPortal.UI.Areas.Ogrenci.Model
 {
 
-    public class ModelOgrenciGiris : ViewModelSession
+    public class ModelOgrenciGiris 
     {
         [Required(ErrorMessage="Lütfen E-Mail Giriniz.")]
         [Display(Name = "E-Mail")]

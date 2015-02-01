@@ -1,13 +1,13 @@
 ﻿using OgrenciPortal.Business.Common;
 using OgrenciPortal.DataTransferObject.Common;
-using OgrenciPortal.UI.Models;
+using OgrenciPortal.UI.Areas.Ogrenci.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace OgrenciPortal.UI.Controllers
+namespace OgrenciPortal.UI.Areas.Ogrenci.Controllers
 {
     public class UyeVeGirisController : Controller
     {
@@ -70,7 +70,7 @@ namespace OgrenciPortal.UI.Controllers
                     //    msession.Soyadi = sonuc.Soyadi;
                     
                     //Session["Kullanici"] = sonuc;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index","../");
                 }
                 else
                     return View();

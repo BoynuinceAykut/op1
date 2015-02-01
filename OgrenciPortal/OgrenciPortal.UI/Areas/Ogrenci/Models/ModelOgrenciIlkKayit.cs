@@ -5,12 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace OgrenciPortal.UI.Models
+namespace OgrenciPortal.UI.Areas.Ogrenci.Model
 {
     /// <summary>
     /// Öğrencinin ilk kayıt sırasında dolduracağı model
     /// </summary>
-    public class ModelOgrenciIlkKayit : ViewModelSession
+    public class ModelOgrenciIlkKayit 
     {
         [Required]
         [Display(Name = "Adı")]
